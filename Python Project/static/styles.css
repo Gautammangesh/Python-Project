@@ -1,0 +1,65 @@
+/* Basic CSS for the navbar */
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    background-color: white;
+    color: #313a46;
+}
+.navbar {
+    position: fixed;
+    display: flex;
+  overflow: hidden;
+  background-color: #313a46;
+  justify-content: flex-end;
+  height: 5rem;
+  width: 100%;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 30px 30px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-right: 20px;
+}
+.navbar a:hover {
+  background-color: #b7b7b7;
+  color: black;
+}
+.navbar img {
+  float: left;
+  height: 40px;
+  padding: 30px 30px;   
+  color: #072f57;
+  margin-right: 35rem;
+}
+.logo {
+    position: fixed;
+    left: 0;
+    top: 6%;
+    transform: translateY(-50%);
+    background-color: #ddd;
+    padding: 5px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    width: 200px; /* Adjust the width to make it smaller */
+    height: 50px; /* Adjust the height to make it smaller */
+}
+
+.main-content{
+    flex: 1;
+    padding-top: 5%;
+}
+
+.navbar .links a.active {
+    font-weight: bold; /* Highlight active link */
+}
+
+  .links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+}
