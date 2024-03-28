@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>AQUASENSE</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main" style="background-color:#F0FFFF;">
+      <!-- Navbar -->
+      <div class="navbar">
+        <div class="logo">
+          <i
+            class="fa-solid fa-book-atlas"
+            color="Red"
+            padding-top="5rem"
+            height="10px"
+            width="10px"
+          >
+          AQUASENSE</i
+          >
+        </div>
+        <div class="links">
+          <a href="/" class="{{ 'active' if request.path == '/' else '' }}"
+            >Home</a
+          >
+          <a
+            href="/maps"
+            class="{{ 'active' if request.path == '/maps' else '' }}"
+            >Maps</a
+          >
+          <a
+            href="/analysis"
+            class="{{ 'active' if request.path == '/analysis' else '' }}"
+            >Analysis</a
+          >
+          <a
+            href="/research"
+            class="{{ 'active' if request.path == '/research' else '' }}"
+            >Research</a
+          >
+          <a
+            href="/features"
+            class="{{ 'active' if request.path == '/features' else '' }}"
+            >Features</a
+          >
+        </div>
+      </div>
+
+      <!-- Page content -->
+      <div class="main-content">
+        <h1 align="center">Welcome to AQUASENSE!</h1>
+        <hr>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d732334.9458774647!2d75.27513981097572!3d19.01797238284027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc52b1f742e9153%3A0xdebbb258bd6d70bb!2sBeed%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1712289248204!5m2!1sen!2sin" 
+          width="600" 
+          height="450" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <h1 align="center">What is Geospatial Analysis?</h1>
+      <p>
+        &nbsp&nbsp&nbsp&nbspGeospatial analysis refers to studying entities by examining, assessing, evaluating, and modeling spatial data features
+        such as locations, attributes, and relationships that reveal data’s &nbsp&nbsp&nbsp&nbspgeometric or geographic properties.<br>
+        &nbsp&nbsp&nbsp&nbspIt uses a variety of computational models, analytical techniques, 
+        and algorithmic approaches to assimilate geographic information and define its suitability for a target system.
+      </p>
+
+      <footer class="footer">
+        <div class="f-info">
+          <div class="f-info-socials">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+          </div>
+          <div class="f-info-brand">&copy; AquaSense</div>
+          <div class="f-info-links">
+            <a href="/privacy">Privacy</a>
+            &nbsp<a href="/terms">Terms</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

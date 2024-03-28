@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>AquaSense</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+      .charts {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: flex-start;
+          margin: 5px 5px;
+          padding: 10px 70px;
+      }
+
+      .lineChart {
+        display: flex;
+        justify-content: center; /* Horizontal alignment */
+        align-items: center; /* Vertical alignment */
+        margin: 5px 5px;
+        padding: 10px 50px 20px;
+        width: 70%;
+        height: 30rem;
+      }
+
+      /*.chart-container {
+          margin: 5px 5px; /* Add equal spacing between charts 
+      }*/
+  </style>
+
+</head>
+<body>
+    <div class="main" style="background-color:#F0FFFF;">
+      <!-- Navbar -->
+      <div class="navbar">
+        <div class="logo">
+          <i class="fa-solid fa-book-atlas" color="Red" padding-top="5rem" height="10px" width="10px"> AquaSense</i>
+        </div>
+        <div class="links">
+          <a href="/" class="{{ 'active' if request.path == '/' else '' }}"
+            >Home</a
+          >
+          <a
+            href="/maps"
+            class="{{ 'active' if request.path == '/maps' else '' }}"
+            >Maps</a
+          >
+          <a
+            href="/analysis"
+            class="{{ 'active' if request.path == '/analysis' else '' }}"
+            >Analysis</a
+          >
+          <a
+            href="/research"
+            class="{{ 'active' if request.path == '/research' else '' }}"
+            >Research</a
+          >
+          <a
+            href="/features"
+            class="{{ 'active' if request.path == '/features' else '' }}"
+            >Features</a
+          >
+        </div>
+      </div>
+      <hr>
+      <br><br><br>
+      <h1 align="center">Analysis</h1>
+      <hr>
+      <!-- Container for both charts -->
+      <div class="charts">
+        <div class="chart-container">
+            <canvas id="barChart" width="400" height="400"></canvas><br>
+            <h3 align="center"> Water Bodies's Count over the Years</h3>
+        </div>
+        <div class="chart-container">
+            <canvas id="polarChart" width="400" height="400"></canvas><br>
+            <h3 align="center" textDecoration="underline"> Responsible Factors</h3>
+        </div>
+      </div>
+      <br><br><br>
+      <hr>
+      <div class="lineChart">
+        <canvas id="lineChart" width="400" height="400"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Bar Chart
+        const barData = {
+          labels: ['1992', '2000', '2008', '2016', '2024', '2026'],
+          datasets: [{
+            label: 'Number of water bodies',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(201, 203, 207, 0.2)'
+            ],
+            borderColor: [
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(201, 203, 207)'
+            ],
+            borderWidth: 1
+          }]
+        };
+
+        const barConfig = {
+          type: 'bar',
+          data: barData,
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        };
+
+        // Polar Area Chart
+        const polarData = {
+          labels: ['Climate Change', 'Low Rainfall', 'Pollution', 'Grey', 'Blue'],
+          datasets: [{
+            label: 'My Dataset',
+            data: [11, 16, 7, 3, 14],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(75, 192, 192)',
+              'rgb(255, 205, 86)',
+              'rgb(201, 203, 207)',
+              'rgb(54, 162, 235)'
+            ]
+          }]
+        };
+
+        const polarConfig = {
+          type: 'polarArea',
+          data: polarData,
+          options: {}
+        };
+
+        // Line Chart
+        const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First Dataset',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        };
+    
+        const config = {
+            type: 'line',
+            data: data,
+        };
+
+        // Initialize bar chart
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, barConfig);
+
+        // Initialize polar area chart
+        const polarCtx = document.getElementById('polarChart').getContext('2d');
+        new Chart(polarCtx, polarConfig);
+
+        // Initialize line chart
+        const lineCtx = document.getElementById('lineChart').getContext('2d');
+        new Chart(lineCtx, config);
+    </script>
+
+    <br><br><br><br>
+
+      <footer class="footer">
+        <div class="f-info">
+            <div class="f-info-socials">
+                <i class="fa-brands fa-square-facebook"></i>
+                <i class="fa-brands fa-square-instagram"></i>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+            <div class="f-info-brand">&copy; AquaSense </div>
+            <div class="f-info-links">
+                <a href="/privacy">Privacy</a>
+                &nbsp<a href="/terms">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+  </body>
+</html>
