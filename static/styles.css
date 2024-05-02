@@ -268,3 +268,18 @@ body {
 #radio5:checked ~.nav-auto .a-b5{
   background-color: #23e3c2;
 }
+
+
+
+.lineChart {
+  max-width: 1000px;
+  max-height: 1000px;
+}
+.barChart {
+  max-width: 1000px;
+  max-height: 1000px;
+}
+.polarChart {
+  max-width: 600px;
+  max-height: 600px;
+}
