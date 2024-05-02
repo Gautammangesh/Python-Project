@@ -10,7 +10,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+      integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>AquaSense</title>
     <link
       rel="stylesheet"
@@ -23,69 +28,121 @@
       rel="stylesheet"
     />
     <script src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
-
   </head>
   <body>
-    <div class="main" style="background-color:#F0FFFF;">
-      <!-- Navbar -->
-      <div class="navbar">
-        <div class="logo">
-          <i class="fa-solid fa-book-atlas" color="Red" padding-top="5rem" height="10px" width="10px"> AquaSense</i>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">
+        <i
+          class="fa-solid fa-book-atlas"
+          color="Red"
+          padding-top="5rem"
+          height="10px"
+          width="10px"
+        >
+          AquaSense</i
+        >
+      </div>
+      <div class="links">
+        <a href="/" class="{{ 'active' if request.path == '/' else '' }}"
+          >Home</a
+        >
+        <a
+          href="/maps"
+          class="{{ 'active' if request.path == '/maps' else '' }}"
+          >Maps</a
+        >
+        <a
+          href="/analysis"
+          class="{{ 'active' if request.path == '/analysis' else '' }}"
+          >Analysis</a
+        >
+        <a
+          href="/research"
+          class="{{ 'active' if request.path == '/research' else '' }}"
+          >Research</a
+        >
+        <a
+          href="/features"
+          class="{{ 'active' if request.path == '/features' else '' }}"
+          >Features</a
+        >
+      </div>
+    </div>
+    <hr />
+    <br /><br /><br />
+    <section class="section">
+      <div class="slider">
+        <div class="slide">
+          <input type="radio" name="radio-btn" id="radio1" />
+          <input type="radio" name="radio-btn" id="radio2" />
+          <input type="radio" name="radio-btn" id="radio3" />
+          <input type="radio" name="radio-btn" id="radio4" />
+          <input type="radio" name="radio-btn" id="radio5" />
+
+          <div class="st first">
+            <img src="static\1992.png" alt="" />
+          </div>
+
+          <div class="st">
+            <img src="static\2000.png" alt="" />
+          </div>
+
+          <div class="st">
+            <img src="static\2008.png" alt="" />
+          </div>
+
+          <div class="st">
+            <img src="static\2016.png" alt="" />
+          </div>
+
+          <div class="st">
+            <img src="static\2024.png" alt="" />
+          </div>
+
+          <div class="nav-auto">
+            <div class="a-b1"></div>
+            <div class="a-b2"></div>
+            <div class="a-b3"></div>
+            <div class="a-b4"></div>
+            <div class="a-b5"></div>
+          </div>
         </div>
-        <div class="links">
-          <a href="/" class="{{ 'active' if request.path == '/' else '' }}">Home</a>
-          <a href="/maps" class="{{ 'active' if request.path == '/maps' else '' }}">Maps</a>
-          <a href="/analysis" class="{{ 'active' if request.path == '/analysis' else '' }}">Analysis</a>
-          <a href="/research" class="{{ 'active' if request.path == '/research' else '' }}">Research</a>
-          <a href="/features" class="{{ 'active' if request.path == '/features' else '' }}">Features</a>
+
+        <div class="nav-m">
+          <label for="radio1" class="m-btn"></label>
+          <label for="radio2" class="m-btn"></label>
+          <label for="radio3" class="m-btn"></label>
+          <label for="radio4" class="m-btn"></label>
+          <label for="radio5" class="m-btn"></label>
         </div>
       </div>
-      <hr>
-      <br><br><br>
-      <h1>This is map page</h1>
-      <!-- Graph placeholder -->
+      <div></div>
+    </section>
+    <script type="text/javascript">
+      var counter = 1;
+      setInterval(function () {
+        document.getElementById("radio" + counter).checked = true;
+        counter++;
+        if (counter > 5) {
+          counter = 1;
+        }
+      }, 4000);
+    </script>
 
-        <img src="static\page1.jpg" alt="Shape file" 
-        width= "500"
-        height= "500"
-        align="center"
-        >
-
-        <img src="static\page2.jpg" alt="Shape file" 
-        width= "500"
-        height= "500"
-        align="center"
-        >
-
-        <img src="static\page3.jpg" alt="Shape file" 
-        width= "500"
-        height= "500"
-        align="center"
-        >
-
-      <br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br>
-      <footer class="footer">
-        <div class="f-info">
-            <div class="f-info-socials">
-                <i class="fa-brands fa-square-facebook"></i>
-                <i class="fa-brands fa-square-instagram"></i>
-                <i class="fa-brands fa-linkedin"></i>
-            </div>
-            <div class="f-info-brand">&copy; AquaSense</div>
-            <div class="f-info-links">
-                <a href="/privacy">Privacy</a>
-                &nbsp<a href="/terms">Terms</a>
-            </div>
+    <footer class="footer">
+      <div class="f-info">
+        <div class="f-info-socials">
+          <i class="fa-brands fa-square-facebook"></i>
+          <i class="fa-brands fa-square-instagram"></i>
+          <i class="fa-brands fa-linkedin"></i>
         </div>
+        <div class="f-info-brand">&copy; AquaSense</div>
+        <div class="f-info-links">
+          <a href="/privacy">Privacy</a>
+          &nbsp<a href="/terms">Terms</a>
+        </div>
+      </div>
     </footer>
-
-    </div>
-
   </body>
 </html>
-
-
-
-
-

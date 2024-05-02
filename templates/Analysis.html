@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -27,11 +27,11 @@
 
     <style>
       .charts {
-          display: flex;
-          justify-content: space-evenly;
-          align-items: flex-start;
-          margin: 5px 5px;
-          padding: 10px 70px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        margin: 5px 5px;
+        padding: 10px 70px;
       }
 
       .lineChart {
@@ -47,15 +47,22 @@
       /*.chart-container {
           margin: 5px 5px; /* Add equal spacing between charts 
       }*/
-  </style>
-
-</head>
-<body>
-    <div class="main" style="background-color:#F0FFFF;">
+    </style>
+  </head>
+  <body>
+    <div class="main" style="background-color: #f0ffff">
       <!-- Navbar -->
       <div class="navbar">
         <div class="logo">
-          <i class="fa-solid fa-book-atlas" color="Red" padding-top="5rem" height="10px" width="10px"> AquaSense</i>
+          <i
+            class="fa-solid fa-book-atlas"
+            color="Red"
+            padding-top="5rem"
+            height="10px"
+            width="10px"
+          >
+            AquaSense</i
+          >
         </div>
         <div class="links">
           <a href="/" class="{{ 'active' if request.path == '/' else '' }}"
@@ -83,139 +90,158 @@
           >
         </div>
       </div>
-      <hr>
-      <br><br><br>
+      <hr />
+      <br /><br /><br />
       <h1 align="center">Analysis</h1>
-      <hr>
+      <hr />
       <!-- Container for both charts -->
       <div class="charts">
         <div class="chart-container">
-            <canvas id="barChart" width="400" height="400"></canvas><br>
-            <h3 align="center"> Water Bodies's Count over the Years</h3>
+          <canvas id="barChart" width="400" height="400"></canvas><br />
+          <h3 align="center">Water Bodies's Count over the Years</h3>
         </div>
         <div class="chart-container">
-            <canvas id="polarChart" width="400" height="400"></canvas><br>
-            <h3 align="center" textDecoration="underline"> Responsible Factors</h3>
+          <canvas id="polarChart" width="400" height="400"></canvas><br />
+          <h3 align="center" textDecoration="underline">Responsible Factors</h3>
         </div>
       </div>
-      <br><br><br>
-      <hr>
+      <br /><br /><br />
+      <hr />
       <div class="lineChart">
         <canvas id="lineChart" width="400" height="400"></canvas>
       </div>
-      
+
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
+      <script>
         // Bar Chart
         const barData = {
-          labels: ['1992', '2000', '2008', '2016', '2024', '2026'],
-          datasets: [{
-            label: 'Number of water bodies',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-              'rgba(255, 205, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(201, 203, 207, 0.2)'
-            ],
-            borderColor: [
-              'rgb(255, 99, 132)',
-              'rgb(255, 159, 64)',
-              'rgb(255, 205, 86)',
-              'rgb(75, 192, 192)',
-              'rgb(54, 162, 235)',
-              'rgb(153, 102, 255)',
-              'rgb(201, 203, 207)'
-            ],
-            borderWidth: 1
-          }]
+          labels: ["1992", "2000", "2008", "2016", "2024", "2026"],
+          datasets: [
+            {
+              label: "Number of water bodies",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+                "rgba(255, 205, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(201, 203, 207, 0.2)",
+              ],
+              borderColor: [
+                "rgb(255, 99, 132)",
+                "rgb(255, 159, 64)",
+                "rgb(255, 205, 86)",
+                "rgb(75, 192, 192)",
+                "rgb(54, 162, 235)",
+                "rgb(153, 102, 255)",
+                "rgb(201, 203, 207)",
+              ],
+              borderWidth: 1,
+            },
+          ],
         };
 
         const barConfig = {
-          type: 'bar',
+          type: "bar",
           data: barData,
           options: {
             scales: {
               y: {
-                beginAtZero: true
-              }
-            }
-          }
+                beginAtZero: true,
+              },
+            },
+          },
         };
 
         // Polar Area Chart
         const polarData = {
-          labels: ['Climate Change', 'Low Rainfall', 'Pollution', 'Grey', 'Blue'],
-          datasets: [{
-            label: 'My Dataset',
-            data: [11, 16, 7, 3, 14],
-            backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(75, 192, 192)',
-              'rgb(255, 205, 86)',
-              'rgb(201, 203, 207)',
-              'rgb(54, 162, 235)'
-            ]
-          }]
+          labels: [
+            "Climate Change",
+            "Low Rainfall",
+            "Pollution",
+            "Grey",
+            "Blue",
+          ],
+          datasets: [
+            {
+              label: "My Dataset",
+              data: [11, 16, 7, 3, 14],
+              backgroundColor: [
+                "rgb(255, 99, 132)",
+                "rgb(75, 192, 192)",
+                "rgb(255, 205, 86)",
+                "rgb(201, 203, 207)",
+                "rgb(54, 162, 235)",
+              ],
+            },
+          ],
         };
 
         const polarConfig = {
-          type: 'polarArea',
+          type: "polarArea",
           data: polarData,
-          options: {}
+          options: {},
         };
 
         // Line Chart
-        const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+        const labels = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+        ];
         const data = {
-            labels: labels,
-            datasets: [{
-                label: 'My First Dataset',
-                data: [65, 59, 80, 81, 56, 55, 40],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            }]
+          labels: labels,
+          datasets: [
+            {
+              label: "My First Dataset",
+              data: [65, 59, 80, 81, 56, 55, 40],
+              fill: false,
+              borderColor: "rgb(75, 192, 192)",
+              tension: 0.1,
+            },
+          ],
         };
-    
+
         const config = {
-            type: 'line',
-            data: data,
+          type: "line",
+          data: data,
         };
 
         // Initialize bar chart
-        const barCtx = document.getElementById('barChart').getContext('2d');
+        const barCtx = document.getElementById("barChart").getContext("2d");
         new Chart(barCtx, barConfig);
 
         // Initialize polar area chart
-        const polarCtx = document.getElementById('polarChart').getContext('2d');
+        const polarCtx = document.getElementById("polarChart").getContext("2d");
         new Chart(polarCtx, polarConfig);
 
         // Initialize line chart
-        const lineCtx = document.getElementById('lineChart').getContext('2d');
+        const lineCtx = document.getElementById("lineChart").getContext("2d");
         new Chart(lineCtx, config);
-    </script>
+      </script>
 
-    <br><br><br><br>
+      <br /><br /><br /><br />
 
       <footer class="footer">
         <div class="f-info">
-            <div class="f-info-socials">
-                <i class="fa-brands fa-square-facebook"></i>
-                <i class="fa-brands fa-square-instagram"></i>
-                <i class="fa-brands fa-linkedin"></i>
-            </div>
-            <div class="f-info-brand">&copy; AquaSense </div>
-            <div class="f-info-links">
-                <a href="/privacy">Privacy</a>
-                &nbsp<a href="/terms">Terms</a>
-            </div>
+          <div class="f-info-socials">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+          </div>
+          <div class="f-info-brand">&copy; AquaSense</div>
+          <div class="f-info-links">
+            <a href="/privacy">Privacy</a>
+            &nbsp<a href="/terms">Terms</a>
+          </div>
         </div>
-    </footer>
-
+      </footer>
     </div>
   </body>
 </html>
