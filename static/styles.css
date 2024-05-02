@@ -112,17 +112,17 @@ iframe {
 }
 
 .topleft {
-  border: 1px solid black;
+  border: 2px solid black;
   margin: 5em;
 }
 
 .topright {
-  border: 1px solid black;
+  border: 2px solid black;
   margin: 5em;
 }
 
 .bottomleft {
-  border: 1px solid black;
+  border: 2px solid black;
   margin: 5em;
 }
 
